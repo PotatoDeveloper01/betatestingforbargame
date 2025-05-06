@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CYBERBAR Sim v7.1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> </head>
+<body>
+
+    <div id="flash-overlay"></div>
+
+    <div id="intro-splash-screen" class="fullscreen-ui visible">
+        <img id="intro-logo" src="https://videos.openai.com/vg-assets/assets%2Ftask_01jtkawy6tekbv8trnnqs5zsjz%2F1746553229_img_0.webp?st=2025-05-06T15%3A55%3A26Z&se=2025-05-12T16%3A55%3A26Z&sks=b&skt=2025-05-06T15%3A55%3A26Z&ske=2025-05-12T16%3A55%3A26Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=3d249c53-07fa-4ba4-9b65-0bf8eb4ea46a&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=yWZB114rUkPX4jZtlY7DwG706nVYcZ%2Bca0bWD9%2FrD9U%3D&az=oaivgprodscus" alt="Cyberbar Intro Logo">
+    </div>
+
+    <div id="main-menu-screen" class="fullscreen-ui">
+        <div class="logo-container-mainmenu">
+            <img id="main-menu-top-logo" src="https://media-hosting.imagekit.io/c6bb4afd3efe495a/Gemini_Generated_Image_ar58fzar58fzar58-removebg-preview.png?Expires=1841160427&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=CvKjXxnl6BgwF7Ocs5vOEGcHB-1FtmxkohwmmlYOyYfA7UYhYktWWI-JRoRRmBUJ5p4SNGD0qkqOx6ISqVMmNl5aa9~fXlsWxXXN3~d-Icyaci-OxT5nWmxOLuTo6m3JgNmuqRjZkV0mimn0fNQzOpB8pFiD-JstXbRRwNX90mw1lPjrK8RuZZZ4u7Z7b2cPM1YgU0jQcY96pOqE6H4Pi3yzKLNkj8FT5OaDnB8gYVq8NCvTtRl5dQBa-fQ3Npbx0lOzaV3sIT3wyTAFaPRidPLOMnlhVmgDmC5zGJAvOe2XKsBOF5I3GUoidVeqravtdzha4ent3I7e4GqiHTk~yg__" alt="Cyberbar Top Logo">
+            <img id="main-menu-bottom-logo" src="https://media-hosting.imagekit.io/ab24ef4dad914ab6/image-removebg-preview%20(3).png?Expires=1841160427&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=oIuwZk9dPBrtxW3JGufCRnEVnWrLBVSsPvXI~R-G2N-uww1xw1emPECeyJTB-HAzFCz2YrvgQRfcxDmQvXr7pyJnBRMQXnhpeirUeiAICq~OhrFm~~9tEs94uV295lJ6Cw8wTOzWMX08DpFKsRZc27FMz9--SDhCoqWa2~ovaOq4pK64S82~1YGeQl7x3BdaOVJJWWVN9w4pQx2j4o85nh3gCxBm8UNu7wJ10toEZXFARKyYaYInMDR3HjaEtgJSNCCHibjJ0efsN4uB6w5GnzwqgjW~hsTU7vNZFYqerkSNrEMunovJJTQ6q~utgK8Hb-To3EZwRVMuW7mUhE~xvg__" alt="Cyberbar Bottom Text Logo">
+        </div>
+        <button id="play-game-btn" class="main-menu-button">Play Game</button>
+        <div id="credits-text">
+            <p>Credits: Virtual Bar 2098 Studios &amp; Google Gemini</p>
+            <p>Menu Music: "Sweetheart" by Lentra</p>
+        </div>
+    </div>
+
+    <div id="game-ui-wrapper" class="fullscreen-ui">
+        <button id="open-social-ui-btn" title="Interact with Patrons">&lt; Interact &gt;</button>
+
+        <div id="game-wrapper">
+            <div id="header-area">
+                <span id="game-time">Time: 08:00</span>
+                <span id="game-day">Day: 1</span>
+                <button id="open-close-sign" class="closed" disabled>SETUP</button>
+            </div>
+
+            <div id="game-container">
+                <div id="left-panel">
+                    <div class="panel-header">
+                        <h2>Customer Info</h2>
+                        <button id="queue-toggle-btn" title="Show/Hide Customer Queue">Queue &gt;</button>
+                    </div>
+                    <div id="queue-section" style="display: none;">
+                        <h3>Waiting Customers</h3>
+                        <div id="queue-list">
+                            <p class="loading-message">No customers waiting...</p>
+                        </div>
+                    </div>
+                    <div id="customer-area">
+                        <div class="customer-visuals">
+                            <img id="customer-icon" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Customer Area">
+                            <div id="emotion-popup"></div>
+                        </div>
+                        <div id="chat-bubble">...</div>
+                    </div>
+                    <div id="stats-area">
+                        <h3>Session Stats</h3>
+                        <div id="score">Score: 0</div>
+                        <div id="money">Cash: $50</div>
+                        <div id="timer-display">Order Time: --</div>
+                        <div id="skill-level-display">Skills: Service L0, Shaking L0</div>
+                        <div id="upgrade-level-display">Upgrades: Jukebox L0, Seating L0</div>
+                        <div id="jukebox-trigger-area">
+                             <button id="open-jukebox-btn" class="small-action-btn">Jukebox</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="middle-panel">
+                    <h2>Bartender Station</h2>
+                    <div class="ingredients-section">
+                        <h3>Ingredients</h3>
+                        <div id="ingredients">
+                            <p class="loading-message">Loading ingredients...</p>
+                        </div>
+                    </div>
+                    <div class="mixing-section">
+                        <h3>Mixing Station</h3>
+                        <div id="mixing-station">
+                            <div id="mixer-image-visual"></div>
+                            <div id="mixed-ingredients-display"></div>
+                        </div>
+                    </div>
+                    <div id="actions">
+                        <button id="clear-btn" class="action-btn" disabled>Clear Mix</button>
+                        <button id="shake-btn" class="action-btn" disabled>Shake</button>
+                        <button id="serve-btn" class="action-btn" disabled>Serve Drink</button>
+                    </div>
+                    <div class="feedback-section">
+                        <h3>Feedback</h3>
+                        <div id="message-box">Welcome! Press SETUP to begin.</div>
+                    </div>
+                </div>
+
+                <div id="right-panel">
+                    <h2>Bar Management</h2>
+                    <div id="tab-buttons">
+                        <button class="tab-btn active" data-tab="recipes">Recipes</button>
+                        <button class="tab-btn" data-tab="unlocks">Unlocks</button>
+                        <button class="tab-btn" data-tab="upgrades">Upgrades</button>
+                        <button class="tab-btn" data-tab="skills">Skills</button>
+                        <button class="tab-btn" data-tab="reviews">Reviews</button>
+                    </div>
+                    <div id="tab-content-area">
+                        <div id="recipes-content" class="tab-content active">
+                            <p class="loading-message">Loading recipes...</p>
+                        </div>
+                        <div id="unlocks-content" class="tab-content">
+                            <p class="loading-message">Loading unlockables...</p>
+                        </div>
+                        <div id="upgrades-content" class="tab-content">
+                            <p class="loading-message">Loading upgrades...</p>
+                        </div>
+                        <div id="skills-content" class="tab-content">
+                            <p class="loading-message">Loading skills...</p>
+                        </div>
+                        <div id="reviews-content" class="tab-content">
+                            <p class="loading-message">No reviews yet.</p>
+                        </div>
+                    </div>
+                </div>
+            </div> </div> </div> <div id="tutorial-modal" class="fullscreen-ui"> 
+        <div id="tutorial-content">
+            <h2>Welcome to CYBERBAR!</h2>
+            <p>You're the new bartender at this neon-drenched establishment. Your goal is to mix drinks, serve customers, earn cash, and upgrade your bar & skills!</p>
+            <p><strong>How to Play:</strong></p>
+            <ul>
+                <li>Click 'SETUP' then 'OPEN BAR' to start the day.</li>
+                <li>Customers will arrive and order drinks. Their order appears in the chat bubble.</li>
+                <li>Drag ingredients from the list to the Mixing Station.</li>
+                <li>Some drinks require shaking – hit the 'Shake' button!</li>
+                <li>Once the drink is ready, click 'Serve Drink'.</li>
+                <li>Manage your money, unlock new recipes & ingredients, and upgrade your bar from the tabs on the right.</li>
+                <li>Don't let customers wait too long, or they'll leave angry!</li>
+            </ul>
+            <button id="start-game-btn" class="main-menu-button">Let's Mix!</button>
+        </div>
+    </div>
+
+    <div id="social-ui-screen" class="fullscreen-ui">
+        <button id="close-social-ui-btn" class="back-button">&lt; Back to Bar</button>
+        <h2>Patron Interactions</h2>
+        <div id="patron-interaction-area">
+            <p class="loading-message">Checking for patrons...</p>
+        </div>
+    </div>
+
+    <div id="jukebox-ui-screen" class="fullscreen-ui">
+        <button id="close-jukebox-ui-btn" class="back-button">&lt; Back to Bar</button>
+        <div id="jukebox-container">
+            <img id="jukebox-main-image" src="https://media-hosting.imagekit.io/632222ba1ce24bb8/screenshot_1746552945333.png?Expires=1841160947&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=QZZ-iTGk4ao6xTQpwiEL8XWT7-F9idBM~P1Iupxp4aBW~8pUoG~8PEv1-xV2xLQCdx2U6D7Yr8ZqWCxe5vy8yT3Fnxhfyek2ObFfFpbwwwHx-v2Ypt2ezwg2E5vCN3J85G8u~LvIXpDzGZlgu7yr94vHj7Zipjj7eu-~RLatDYBLVb~P16sYE0SSPQoP9p~giYW9p1mbYlwhsj1J~6EbZP0ftePe-H9uNwJe3UuqCNod5qLsDkgVpL2AGPQSO8JsFm4cq~VzqaE~6lKVGnr3VkGTLx7XRCw2da~NM4cJXx~4TLa03Wi3g~yOy77H5Eeol3c0ma8iE1i-GoT0aGy1wA__" alt="Jukebox Interface">
+            <div id="jukebox-controls"> 
+                <div id="jukebox-song-info">Now Playing: <span>Song Title - Artist</span></div>
+                <div class="jukebox-buttons-row">
+                    <button id="jukebox-prev-song-btn" title="Previous Song">&lt;&lt;</button>
+                    <button id="jukebox-play-btn" title="Play">Play</button>
+                    <button id="jukebox-pause-btn" title="Pause" style="display:none;">Pause</button>
+                    <button id="jukebox-next-song-btn" title="Next Song">&gt;&gt;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <audio id="menu-music-player" loop src="https://github.com/PotatoDeveloper01/bargame/raw/refs/heads/main/lentra%20-%20sweetheart.mp3"></audio>
+    <audio id="game-music-player" loop src="https://github.com/PotatoDeveloper01/bargame/raw/refs/heads/main/P%20I%20X%20E%20L%20%20Arcade%20Games%20style%20Soundtrack%20%20Lofi%20and%20Chill%20to%20relax%20study%20to.mp3"></audio>
+    <script src="game.js" defer></script>
+</body>
+</html>
